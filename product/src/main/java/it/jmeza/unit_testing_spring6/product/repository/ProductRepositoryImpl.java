@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class ProductRepositoryImpl implements ProductRepository {
     private static final Logger logger = LogManager.getLogger(ProductRepositoryImpl.class);
     private final JdbcTemplate jdbcTemplate;
@@ -27,7 +29,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> findById(String id) {
+    public Optional<Product> findById(Integer id) {
         try {
             Product product = jdbcTemplate.queryForObject("SELECT * FROM products WHERE id = ?",
                     (rs, rowNum) -> {

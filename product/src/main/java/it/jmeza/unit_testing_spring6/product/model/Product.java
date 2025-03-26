@@ -6,6 +6,27 @@ public class Product {
     private Integer quantity;
     private Integer version;
 
+    public Product() {
+    }
+
+    public Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public Product(Integer id, String name, Integer quantity, Integer version) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.version = version;
+    }
+
+    public Product(Integer id, String name, Integer quantity) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     public Integer getVersion() {
         return version;
     }
